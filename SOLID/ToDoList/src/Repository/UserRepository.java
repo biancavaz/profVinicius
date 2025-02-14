@@ -16,7 +16,7 @@ public class UserRepository {
 
         try (Connection con = banco.getConnection()){
 
-            PreparedStatement ps = con.prepareStatement("INSERT INTO tb_tarefa (nome, " +
+            PreparedStatement ps = con.prepareStatement("INSERT INTO tb_users (nome, " +
                     "email, senha) VALUES (?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, user.getNome());
@@ -41,7 +41,7 @@ public class UserRepository {
     //EDITAR
     public void UpdateUser(User user) {
         try (Connection con = banco.getConnection()){
-            PreparedStatement ps = con.prepareStatement("UPDATE tb_tarefa" +
+            PreparedStatement ps = con.prepareStatement("UPDATE tb_users" +
                     " SET nome = ?, email = ?, senha =? WHERE nome = ?");
 
             ps.setString(1, user.getNome());
@@ -61,7 +61,7 @@ public class UserRepository {
     public void DeleteUser(String nome) {
         try(Connection con = banco.getConnection()){
 
-            PreparedStatement ps = con.prepareStatement("DELETE FROM tb_tarefa " +
+            PreparedStatement ps = con.prepareStatement("DELETE FROM tb_users " +
                     "WHERE nome = ?");
 
             ps.setString(1, nome);
@@ -76,7 +76,7 @@ public class UserRepository {
     public List<User> readAllUsers() {
         try(Connection con = banco.getConnection()){
 
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM tb_tarefa");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM tb_users");
 
             ResultSet rs = ps.executeQuery();
             List<User> users = new ArrayList<>();
@@ -103,7 +103,7 @@ public class UserRepository {
         try(Connection con = banco.getConnection()){
 
             PreparedStatement ps = con.prepareStatement("SELECT * FROM " +
-                    " tb_tarefa WHERE id = ?");
+                    " tb_users WHERE id = ?");
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

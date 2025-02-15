@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CrudListaDeTarefas {
+public class ListadeTarefasRepository {
 
     private final BancoDeDados db = new BancoDeDados();
 
@@ -77,7 +77,6 @@ public class CrudListaDeTarefas {
         }
     }
 
-
     //READ ALL
     public List<ListaDeTarefas> readAll () {
 
@@ -94,16 +93,19 @@ public class CrudListaDeTarefas {
                 String descricao = rs.getString("descricao");
                 String status = rs.getString("status");
                 String prioridade = rs.getString("prioridade");
+                int id_user = rs.getInt("id_user");
 
-                CRUDUser crudUser = new CRUDUser();
+                UserRepository crudUser = new UserRepository();
                 User user = crudUser.readOnde(id_user);
 
-                listaTarefas.add(new ListaDeTarefas(id,titulo, descricao, status, prioridade, user));
+                listaTarefas.add(new ListaDeTarefas(id, titulo, descricao, status, prioridade, user));
             }
 
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }
+
+        throw new RuntimeException();
     }
 
     //READ ONE
@@ -124,10 +126,11 @@ public class CrudListaDeTarefas {
                 String descricao = rs.getString("descricao");
                 String status = rs.getString("status");
                 String prioridade = rs.getString("prioridade");
+                int id_user = rs.getInt("id_user");
 
 
-                CRUDUser crudUser = new CRUDUser();
-                User user = crudUser.readOne(id_user);
+                UserRepository crudUser = new UserRepository();
+                User user = crudUser.readOnde(id_user);
 
                 return new ListaDeTarefas(id, tituloo, descricao, status, prioridade, user);
 

@@ -20,6 +20,16 @@ public class ListaDeTarefas {
         this.user = user;
     }
 
+    public ListaDeTarefas (String titulo, String descricao,
+                           String status, String prioridade, User user){
+
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.status = status;
+        this.prioridade = prioridade;
+        this.user = user;
+    }
+
     public ListaDeTarefas(){};
 
     @Override

@@ -14,6 +14,12 @@ public class User {
         this.senha = senha;
     }
 
+    public User(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
     public User(){};
 
     @Override

@@ -1,0 +1,11 @@
+O que é arquitetura de software?
+--> é uma organização geral de um projeto ou sistema.
+
+O que é MVC?
+--> uma arquitetura que consiste em MODEL, VIEW e CONTROLLER
+
+O que é arquitetura monolítica?
+--> Uma arquitetura monolítica todos os serviços são acoplados e dependentes.
+
+O que são serviços?
+--> Serviços são por exemplo: API de funções do user separada da API de funções dos livros, serviços são coisas independentes. 

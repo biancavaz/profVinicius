@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jdk.jfr.DataAmount;
 
-@Entity // diz que é uma entidade no banco de dados
+@Entity
+// diz que é uma entidade no banco de dados
 public class TaskModel {
 
     @Id //primary key (identificador) --> coloca de referência no repository
